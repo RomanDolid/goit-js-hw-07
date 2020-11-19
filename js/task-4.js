@@ -1,5 +1,3 @@
-console.log('Task-4');
-
 const btnDecrementRef = document.querySelector('[data-action="decrement"]');
 const btnIncrementRef = document.querySelector('[data-action="increment"]');
 const counterValueRef = document.getElementById('value');
@@ -7,11 +5,13 @@ const counterValueRef = document.getElementById('value');
 btnIncrementRef.addEventListener('click', incr);
 btnDecrementRef.addEventListener('click', decr);
 
-function incr(event) {
-  counterValueRef.textContent = Number(counterValueRef.textContent) + 1;
+let counterValue = Number(counterValueRef.textContent);
+function incr() {
+  counterValue += 1;
+  counterValueRef.textContent = counterValue;
 }
-function decr(event) {
-  Number(counterValueRef.textContent) > 0
-    ? (counterValueRef.textContent = Number(counterValueRef.textContent) - 1)
-    : (counterValueRef.textContent = 0);
+
+function decr() {
+  counterValue > 0 ? (counterValue -= 1) : (counterValue = 0);
+  counterValueRef.textContent = counterValue;
 }

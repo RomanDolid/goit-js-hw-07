@@ -1,5 +1,3 @@
-console.log('Task-1');
-
 const countCategoriesRef = document.querySelectorAll('.item');
 console.log(
   `Kоличество категорий в 'ul#categories' - ${countCategoriesRef.length}`,

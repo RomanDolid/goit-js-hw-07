@@ -1,5 +1,3 @@
-console.log('Task-3');
-
 const images = [
   {
     url:
@@ -18,18 +16,16 @@ const images = [
   },
 ];
 
-const createGallery = (arr, id) => {
-  arr.forEach(({ url, alt }) => {
-    const itemLiRef = `<li><img /></li>`;
-    id.insertAdjacentHTML('afterbegin', itemLiRef);
-    const imgRef = id.querySelector('img');
-    imgRef.setAttribute('src', url);
-    imgRef.setAttribute('alt', alt);
-    imgRef.classList.add('js-img-style');
-  });
-  id.classList.add('js-item-style');
-};
-
 const galeryRef = document.getElementById('gallery');
-createGallery(images, galeryRef);
-console.log(galeryRef);
+const galeryMarkup = createGallery(images);
+
+galeryRef.classList.add('js-item-style');
+galeryRef.insertAdjacentHTML('afterbegin', galeryMarkup);
+
+function createGallery(images) {
+  return images
+    .map(({ url, alt }) => {
+      return `<li><img src="${url}" alt="${alt}" class="js-img-style" /></li>`;
+    })
+    .join('');
+}
