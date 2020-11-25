@@ -5,13 +5,15 @@ const counterValueRef = document.getElementById('value');
 btnIncrementRef.addEventListener('click', incr);
 btnDecrementRef.addEventListener('click', decr);
 
-let counterValue = Number(counterValueRef.textContent);
+let counterValue = 0;
+
 function incr() {
-  counterValue += 1;
-  counterValueRef.textContent = counterValue;
+  counterValueRef.textContent = counterValue += 1;
 }
 
 function decr() {
-  counterValue > 0 ? (counterValue -= 1) : (counterValue = 0);
-  counterValueRef.textContent = counterValue;
+  if (counterValue === 0) {
+    return;
+  }
+  counterValueRef.textContent = counterValue -= 1;
 }
